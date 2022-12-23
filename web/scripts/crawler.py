@@ -19,6 +19,7 @@ def run():
     for item in soup.find_all("tr", {'class': ["list1", "list0"]}):
         try:
             image = item.find("img", class_="thumb_border").get("src")[2:]
+            image = "http://" + image
             title = item.find("font", class_="list_title").text
             title = title.strip()
             link = item.find("font", class_="list_title").parent.get("href")
